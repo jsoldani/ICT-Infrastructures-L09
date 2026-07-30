@@ -38,10 +38,12 @@ public class Lab {
             totalCores += host.getPesNumber();
         }
         // Print resources (more human readable)
+        System.out.println("\n============== Datacenter info ==============");
         System.out.println("Hosts      : " + d.getHostList().size());
         System.out.println("CPU cores  : " + totalCores);
         System.out.println("RAM (GB)   : " + totalRam/1024.0);
         System.out.println("Storage(TB): " + totalStorage/1_048_576.0);
+        System.out.println("===============================================");
     }
 
     // Helper method to create a broker to submit VMs to a data center
@@ -74,5 +76,26 @@ public class Lab {
         vm.setSize(storage);
         vm.setBw(bandwidth);
         return vm;
+    }
+
+    // Helper method to print the allocation of VMs
+    public static void printVMAllocation(List<Vm> vmList) {
+
+        System.out.println("\n================ VM Allocation ================");
+
+        System.out.printf("%-5s %-6s %-8s %-8s %-10s%n",
+                "VM", "Host", "vCPUs", "RAM", "Storage");
+
+        for (Vm vm : vmList) {
+
+            System.out.printf("%-5d %-6d %-8d %-8d %-10d%n",
+                    vm.getId(),
+                    vm.getHost().getId(),
+                    vm.getPesNumber(),
+                    vm.getRam().getCapacity(),
+                    vm.getStorage().getCapacity());
+        }
+
+        System.out.println("===============================================");
     }
 }
