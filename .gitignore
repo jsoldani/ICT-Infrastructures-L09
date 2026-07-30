@@ -13,3 +13,5 @@ target/
 .classpath
 
 .vscode/
+
+build.log
