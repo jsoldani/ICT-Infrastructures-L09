@@ -56,7 +56,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>
-                                        ictinfrastructures.lab09.Exercise1
+                                        ictinfrastructures.lab09.Exercise5
                                     </mainClass>
                                 </transformer>
                             </transformers>

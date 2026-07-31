@@ -16,24 +16,12 @@ public class Exercise1 {
 
         // Creating the datacenter infrastructure
         Datacenter datacenter = Lab.createDatacenter(simulation);
-        // TODO: ADD HOSTS
+
+        // Adding hosts
+        // TODO
         // e.g., datacenter.addHost(Lab.createHost(8, 16_384, 2_000_000, 10_000));
+
+        // Visualising the overall available computing resources
         Lab.printDatacenterInfo(datacenter);
-
-        // Creating a broker to place VMs over the datacenter infrastructure
-        DatacenterBroker broker = Lab.createBroker(simulation);
-
-        // Submitting VMs for placement
-        List<Vm> vmList = new ArrayList();
-        // TODO: ADD VMs
-        // e.g., vmList.add(Lab.createVM(2, 2048, 1_000_000, 5_000));
-        broker.submitVmList(vmList);
-
-        // Simulating the VM placement
-        simulation.terminateAt(1);
-        simulation.start();
-
-        // Visualising the result (-1 means that the VM was not placed)
-        Lab.printVMAllocation(vmList);
     }
 }

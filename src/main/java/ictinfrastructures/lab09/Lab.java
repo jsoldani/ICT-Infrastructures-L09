@@ -18,6 +18,10 @@ import org.cloudsimplus.vms.Vm;
 import org.cloudsimplus.vms.VmSimple;
 
 public class Lab {
+    // Utils for conversion
+    private static final double MB_TO_GB = 1024.0;
+    private static final double MB_TO_TB = 1024.0 * 1024.0;
+
     // By default, hosts' and VMs' cores are with 2000 MIPS
     private static final int MIPS = 2000;
 
@@ -41,8 +45,8 @@ public class Lab {
         System.out.println("\n============== Datacenter info ==============");
         System.out.println("Hosts      : " + d.getHostList().size());
         System.out.println("CPU cores  : " + totalCores);
-        System.out.println("RAM (GB)   : " + totalRam/1024.0);
-        System.out.println("Storage(TB): " + totalStorage/1_048_576.0);
+        System.out.println("RAM (GB)   : " + totalRam/MB_TO_GB);
+        System.out.println("Storage(TB): " + totalStorage/MB_TO_TB);
         System.out.println("===============================================");
     }
 
@@ -97,5 +101,23 @@ public class Lab {
         }
 
         System.out.println("===============================================");
+    }
+
+    // Helper method to print the actual utilization of hosts
+    public static void printHostUtilization(Datacenter dc) {
+
+        System.out.println("\n============= Host Utilization =============");
+
+        for (Host host : dc.getHostList()) {
+
+            System.out.printf(
+                "Host %2d: %d/%d cores, %.1f GB RAM used%n",
+                host.getId(),
+                host.getBusyPesNumber(),
+                host.getPesNumber(),
+                host.getRam().getAllocatedResource()/1024.0);
+        }
+
+        System.out.println("============================================");
     }
 }
