@@ -1,12 +1,7 @@
 package ictinfrastructures.lab09;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.cloudsimplus.brokers.DatacenterBroker;
 import org.cloudsimplus.core.CloudSimPlus;
 import org.cloudsimplus.datacenters.Datacenter;
-import org.cloudsimplus.vms.Vm;
 
 public class Exercise1 {
 
