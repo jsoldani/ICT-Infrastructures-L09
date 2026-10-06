@@ -14,7 +14,8 @@ where `N` is the number of the exercise you wish to run.
 
 _Note: Requires Python 3.8 and Java 17._
 
-# Helper class
+# Helper class
+
 The simulations are based on the [CloudSimPlus](https://cloudsimplus.org) simulator. To abstract away from the boilerplate code needed to configure and run them, a helper [Lab.java](src/main/java/ictinfrastructures/lab09/java) class is made available. The helper class allows to:
 - Create data centers
 - Create brokers
